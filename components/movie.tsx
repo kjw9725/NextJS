@@ -16,7 +16,9 @@ export default function Movie({ id, poster, title }: movieType) {
   return (
     <li key={id} className={styles.movie}>
       <img src={poster} alt="poster" onClick={goDetail} />
-      <Link href={`/movies/${id}`}>{title}</Link>
+      <Link prefetch href={`/movies/${id}`}>
+        {title}
+      </Link>
     </li>
   );
 }
