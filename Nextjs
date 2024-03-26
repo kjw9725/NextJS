@@ -70,3 +70,27 @@ ex) <Suepense fallback={loading}> <Suepense />
 Error
 
 - 에러페이지를 사용할 폴더안에 error파일생성(error.tsx, error.jsx) 하면 에러 발생시 해당 컴포넌트를 화면에 노출함 (※"use client" 필수)
+
+Style
+
+1. 파일이름.module.css 파일로 생성
+2. 적용하고 싶은 컴포넌트에서 import styles from './파일이름.module.css';
+3. 적용할 태그에 className적용 ex) className={styles.nav}
+
+useRouter()
+
+- 페이지 이동을 Link태그로 감싸지 않고 onmclick으로 가능하게 한다
+  "use client" // onclick은 서버에 존재하지않기 때문에 선언
+  import {useRouter} from "next/navigation"; //경로 "next/navigation" 필수
+
+const router = useRouter();
+const goPage = () =>{
+router.push(`/movies/${id}`); //이동할 페이지 url
+}
+
+Vercel 배포방법
+
+1. 완성 프로젝트 깃허브에 올리기
+2. vercel 회원가입 및 로그인 -> Add new -> Project -> 프로젝트 올린 repo import -> 이름 설정후 Deploy
+3. package.json scripts안에 "start": "next start", "build": "next build" 추가(추가 후 깃허브 푸시)
+4. VScode 터미널에서 npm run build(빌드시 발생하는 에러들은 해결해야함)
