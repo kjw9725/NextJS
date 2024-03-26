@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import homerStyles from '../../styles/home.module.css';
+import Movie from '../../components/movie';
 export const API_URL = 'https://nomad-movies.nomadcoders.workers.dev/movies';
 
 async function getMovies() {
@@ -17,12 +19,10 @@ export default async function HomePage({
   const movies = await getMovies();
 
   return (
-    <div>
+    <div className={homerStyles.container}>
       {movies.map((movie) => {
         return (
-          <li key={movie.id}>
-            <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
-          </li>
+          <Movie id={movie.id} poster={movie.poster_path} title={movie.title} />
         );
       })}
     </div>

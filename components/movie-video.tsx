@@ -1,4 +1,4 @@
-import { API_URL } from '../../../(home)/page';
+import { API_URL } from '../app/(home)/page';
 
 const getVideo = async (id: string) => {
   const response = await fetch(`${API_URL}/${id}/videos`);
